@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from "react";
 
 // key - name/id of the object to be saved in storage
 // defaultValue -  if the object with the passed key is not found, the default value will be used
@@ -16,7 +16,7 @@ function useStorage(key, defaultValue, storageObject) {
 
     if (jsonValue != null) return JSON.parse(jsonValue);
 
-    if (typeof initialValue === 'function') {
+    if (typeof initialValue === "function") {
       return defaultValue();
     } else {
       return defaultValue;

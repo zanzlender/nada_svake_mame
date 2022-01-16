@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import useUpdateEffect from './useUpdateEffect';
+import { useState, useCallback } from "react";
+import useUpdateEffect from "./useUpdateEffect";
 
 // validationFunction - function to validate the state
 // initialValue - the initial value of the state
@@ -15,9 +15,9 @@ export default function useStateWithValidation(
   }, [state]);
 
   const onChange = useCallback(
-    nextState => {
+    (nextState) => {
       const value =
-        typeof nextState === 'function' ? nextState(state) : nextState;
+        typeof nextState === "function" ? nextState(state) : nextState;
 
       setstate(value);
       setIsValid(validationFunction(value));
