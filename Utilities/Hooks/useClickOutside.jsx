@@ -1,11 +1,11 @@
-import useEventListener from './useEventListener';
+import useEventListener from "./useEventListener";
 
 // ref - reference to the object (modal) to watch
 // callback - function to be executed after touchOutside is detected
 export default function useClickOutside(ref, callback) {
   useEventListener(
-    'click',
-    e => {
+    "click",
+    (e) => {
       if (ref.current == null || ref.current.contains(e.target)) return;
       callback(e);
     },
@@ -19,7 +19,7 @@ export default function useClickOutside(ref, callback) {
     const modalRef = useRef();
 
     useClickOutside(modalRef, () => {
-        if(isOpen) setOpen(false);
+        if(isOpen) setIsOpen(false);
     })
 
     return (
